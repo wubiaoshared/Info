@@ -676,6 +676,89 @@ input[type=checkbox].chkbox:checked + .lbl::before {
   cursor: pointer;
 }
 .np-load-more-loading{ background:url(../images/loading-grey.gif) center center no-repeat;text-indent:-9000px;display:block}
+.chartselect {
+  height: 34px;
+  float: left;
+}
+.chartselect {
+  width: 108px;
+  margin: -3px 0 0 0;
+    -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+  border: 1px solid #dcdcdc;
+  color: #444;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 32px;
+  list-style: none;
+  margin: 0 2px;
+  min-width: 46px;
+  outline: none;
+  padding: 0 18px 0 6px;
+  text-decoration: none;
+  vertical-align: middle;	
+}
+.select-inline-block {
+  position: relative;
+  display: -moz-inline-box;
+  display: inline-block;	
+}
+.chartselect .button-caption {
+  cursor: default;
+  vertical-align: top;
+  white-space: nowrap;	
+}
+.chartselect .button-dropdown {
+  border-color: #777 transparent;
+  border-style: solid;
+  border-width: 4px 4px 0;
+  position: absolute;
+  right: 5px;
+  top: 12px;	
+  background: url(../images/arrow-up-down.png) center no-repeat;
+  border: none;
+  height: 11px;
+  margin-top: -1px;
+  width: 7px;
+}
+.select-menu {
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  -webkit-transition: opacity 0.218s;
+  -moz-transition: opacity 0.218s;
+  -ms-transition: opacity 0.218s;
+  -o-transition: opacity 0.218s;
+  transition: opacity 0.218s;
+  background: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,.2);
+  cursor: default;
+  font-size: 13px;
+  margin: 0;
+  outline: none;
+  padding: 0 0 6px;
+  position: absolute;
+  z-index: 1000;
+  overflow: auto;	
+}
+.select-menu .select-menuitem {
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 6px 7em 4px 30px;
+  white-space: nowrap;	
+}
 /* Retina support */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (-moz-min-device-pixel-ratio: 1.5),

@@ -4,7 +4,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <h3 class="box-title">个人信息</h3>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal" method="post" action="">
+            <form class="form-horizontal" method="post" action="<%=basePath %>admin/profile?method=save">
                 <div class="form-group">
                   <label class="col-sm-2 control-label">用户名</label>
                   <div class="col-sm-10">
@@ -73,6 +72,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="name"
 									placeholder="昵称" value="${user.name }">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">生日</label>
+                  <div class="col-sm-10">
+                    <span id="BirthYear">
+                    	<div class="chartselect select-inline-block">
+	                    	<div class="button-caption select-inline-block">年</div>
+	                    	<div class="button-dropdown select-inline-block">&nbsp;</div>
+	                    </div>
+	                    <div class="select-menu">
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":1">1月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":2">2月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":3">3月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":4">4月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":5">5月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":6">6月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":7">7月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":8">8月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":9">9月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":10">10月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":11">11月</div>
+	                    	</div>
+	                    	<div class="select-menuitem">
+	                    		<div class="select-menuitem-content" id=":12">12月</div>
+	                    	</div>
+	                    </div>
+                    </span>
                   </div>
                 </div>
                 <div class="form-group">
