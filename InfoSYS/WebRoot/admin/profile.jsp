@@ -77,50 +77,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="form-group">
                   <label class="col-sm-2 control-label">生日</label>
                   <div class="col-sm-10">
-                    <span id="BirthYear">
-                    	<div class="chartselect select-inline-block">
-	                    	<div class="button-caption select-inline-block">年</div>
-	                    	<div class="button-dropdown select-inline-block">&nbsp;</div>
-	                    </div>
-	                    <div class="select-menu">
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":1">1月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":2">2月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":3">3月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":4">4月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":5">5月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":6">6月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":7">7月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":8">8月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":9">9月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":10">10月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":11">11月</div>
-	                    	</div>
-	                    	<div class="select-menuitem">
-	                    		<div class="select-menuitem-content" id=":12">12月</div>
-	                    	</div>
-	                    </div>
-                    </span>
+                  	<span id="BirthYear" class="select-inline-block"></span>
+                    <span id="BirthMonth" class="select-inline-block"></span>
+                    <span id="BirthDay" class="select-inline-block"></span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -184,6 +143,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script> 
 <script src="<%=basePath %>js/custom.js" type="text/javascript"></script> 
 <script src="<%=basePath %>js/common.js" type="text/javascript"></script> 
+<script type="text/javascript">
+var month = [];
+var year = [];
+var day = [];
+for(var i=1;i<=12;i++) {
+	month.push({
+		selectid : ":"+i,
+		text : i+"月"
+	});
+}
+for(var i=1965;i<=2016;i++) {
+	year.push({
+		selectid : ":"+i,
+		text : i+"年"
+	});
+}
+for(var i=1;i<=30;i++) {
+	day.push({
+		selectid : "::"+i,
+		text : i+"日"
+	});
+}
 
+$.MsgBox.select("#BirthMonth",{
+	selectname : "月",
+	items : month
+});
+$.MsgBox.select("#BirthYear",{
+	selectname : "年",
+	items : year
+});
+$.MsgBox.select("#BirthDay",{
+	selectname : "日",
+	items : day
+});
+
+</script>
 </body>
 </html>

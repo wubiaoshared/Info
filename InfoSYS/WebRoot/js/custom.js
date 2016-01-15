@@ -86,6 +86,9 @@ $.MsgBox = {
 		$(dialog).remove();
 		masked.remove();
 	},
+	select : function(name,options,callback) {
+		return $(name).selectBox(name,options,callback);
+	},
 	//统一处理Ajax返回结果
 	ajaxSuccess : function(data,status,xhr) {
 		var code = data.code;	//提示方式
@@ -364,5 +367,44 @@ $.ajaxSetup({
 		}
 		
 		dialog.appendTo("body");
+	}
+	
+	//selectBox扩展
+	$.fn.selectBox = function(name,options,callback) {
+		var opts = $.extend({
+			selectname : '',	//select的名称
+			items : []	//options
+		},options||{});
+		
+		var selectarea = $('<div class="chartselect select-inline-block"><div class="button-caption select-inline-block">'+opts.selectname+'</div><div class="button-dropdown select-inline-block">&nbsp;</div></div>');
+		var itemsLength = opts.items.length;
+		var option = "";
+		for(var i=0;i<itemsLength;i++) {
+			option += '<div class="select-menuitem"><div class="select-menuitem-content" selectid="'+opts.items[i].selectid+'">'+opts.items[i].text+'</div></div>';
+		}
+		var selectitems = $('<div class="select-menu" style="display: none;">'+option+'</div>');
+		selectarea.click(function(){
+			var selectmenu = $(this).siblings(".select-menu");
+			if(selectmenu.css("display")=="none") {
+				selectitems.show();
+				var midY = selectitems.height()/2;
+				selectmenu.css("top",-midY);
+			}else {
+				selectitems.hide();
+			}
+		});
+		$(".select-menuitem",selectitems).click(function(){
+			var _this = $(this).find(".select-menuitem-content");
+			var txt = _this.text();
+			var _caption = $(this).parent().siblings(".chartselect").find(".button-caption");
+			_caption.html(txt);
+			var value = _this.attr("id");
+			_caption.attr("aria-posinset",value);
+			$(".select-menu").hide();
+		});
+		
+		
+		selectarea.appendTo(name);
+		selectitems.appendTo(name);
 	}
 })(jQuery);

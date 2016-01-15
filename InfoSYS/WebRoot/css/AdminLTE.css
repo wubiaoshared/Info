@@ -716,6 +716,19 @@ input[type=checkbox].chkbox:checked + .lbl::before {
   vertical-align: top;
   white-space: nowrap;	
 }
+.chartselect .button-caption-hover {
+  background-color: #f8f8f8;
+  background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  border-color: #c6c6c6;
+  color: #333;
+  }
 .chartselect .button-dropdown {
   border-color: #777 transparent;
   border-style: solid;
@@ -749,6 +762,7 @@ input[type=checkbox].chkbox:checked + .lbl::before {
   position: absolute;
   z-index: 1000;
   overflow: auto;	
+  max-height: 280px;
 }
 .select-menu .select-menuitem {
   position: relative;
@@ -758,6 +772,14 @@ input[type=checkbox].chkbox:checked + .lbl::before {
   margin: 0;
   padding: 6px 7em 4px 30px;
   white-space: nowrap;	
+}
+.select-menu .select-menuitem:hover {
+  background-color: #eee;
+  border-color: #eee;
+  border-style: dotted;
+  border-width: 1px 0;
+  padding-top: 5px;
+  padding-bottom: 5px;	
 }
 /* Retina support */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
