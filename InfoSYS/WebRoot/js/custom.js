@@ -398,8 +398,9 @@ $.ajaxSetup({
 			var txt = _this.text();
 			var _caption = $(this).parent().siblings(".chartselect").find(".button-caption");
 			_caption.html(txt);
-			var value = _this.attr("id");
-			_caption.attr("aria-posinset",value);
+			var value = _this.attr("selectid");
+			_caption.attr("selectedid",value);
+			_caption.attr("aria-posinset",txt);
 			$(".select-menu").hide();
 		});
 		
