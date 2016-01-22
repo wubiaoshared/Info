@@ -40,6 +40,7 @@ public class LoginService extends HttpServlet {
 		String msg = null;
 		String ip = Validate.getIpAddr(request);	//用户ip地址
 		String rb = request.getParameter("RememeberMe");
+		String flag = "u";
 		JSONObject jsonObject = new JSONObject();
 		int name = 0;
 		if(pass!=null&&nameStr!=null&&pass.trim().length()>=6 && nameStr.trim().length()>=6) {
@@ -79,9 +80,18 @@ public class LoginService extends HttpServlet {
 			}else {
 				msg = "登录失败! 用户名只能输入数字！";;
 			}
-		}else {
-			msg = "登录失败! 用户名或密码至少为6位!";;
+		}else if(pass==null||"".equals(pass.trim())) {
+			msg = "登录失败! 密码不能为空!";
+			flag = "p";
+		}else if(nameStr==null||"".equals(nameStr.trim())) {
+			msg = "登录失败! 用户名不能为空!";
+		}else if(pass.trim().length()<6) {
+			msg = "登录失败! 密码至少为6位!";
+			flag = "p";
+		}else if(nameStr.trim().length()<6) {
+			msg = "登录失败! 用户名至少为6位!";
 		}
+		jsonObject.put("flag", flag);
 		jsonObject.put("msg", msg);
 		out.print(jsonObject);
 		out.flush();

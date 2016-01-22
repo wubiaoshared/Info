@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 			confirm_id = time;
 		}
 		if("".equals(method)||method == null) {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("signin.jsp").forward(request, response);
 		}else if("logout".equals(method)) {
 			if("yes".equals(usr_confirm)&&confirm_id.equals(d)) {
 				code = "redirect";

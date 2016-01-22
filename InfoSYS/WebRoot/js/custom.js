@@ -348,14 +348,16 @@ $.ajaxSetup({
 			$(".modal-header",dialog).click(function(){
 			}).mousedown(function(e){
 				//alert(111);
-				_move = true;
-				_x = e.pageX - parseInt($(".modal-content",dialog).css("left"));
-				_y = e.pageY - parseInt($(".modal-content",dialog).css("top"));
-				$(".modal-content",dialog).fadeTo(20,0.6);		//透明显示
+				if(!$(this).is(":animated")) {
+					_move = true;
+					_x = e.pageX - parseInt($(".modal-content",dialog).css("left"));
+					_y = e.pageY - parseInt($(".modal-content",dialog).css("top"));
+					$(".modal-content",dialog).fadeTo(20,0.6);		//透明显示
+				}
 			});
 
 			$(".modal-header",dialog).mousemove(function(e){
-				if(_move) {
+				if(_move && !$(this).is(":animated")) {
 					var x = e.pageX - _x;
 					var y = e.pageY - _y;
 					$(".modal-content",dialog).css({"top":y,"left":x});	//新位置

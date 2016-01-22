@@ -224,6 +224,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <div class="box-header">
                       <h3 class="box-title"><i class="fa fa-comments-o"></i> 聊天室</h3>
                       <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                      	  <a href="javascript:;" class="cls">清屏</a>
                           <div class="btn-group" data-toggle="btn-toggle" >
                               <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>                                            
                               <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
@@ -282,7 +283,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </div><!-- /.chat -->
                   <div class="box-footer">
                       <div class="input-group">
-                          <input class="form-control" placeholder="请输入要发送内容..."/>
+                          <input class="form-control" type="text" placeholder="请输入要发送内容..."/>
                           <div class="input-group-btn">
                               <button class="btn btn-success"><i class="fa fa-plus"></i></button>
                           </div>

@@ -155,4 +155,49 @@ $("a.logout").bind("click",function(){
 	$.MsgBox.ajaxSubmit("",url);
 	return false;
 });
+
+//chat 
+var i = 0;
+function add_msg(name,img,msg,clear) {
+	i = i + 1;
+	var inner = $("#chat-box");
+	var time = new Date();
+	var hours = time.getHours();
+	var minutes = time.getMinutes();
+	if(hours < 10) hours = "0" + hours;
+	if(minutes < 10) minutes = "0" + minutes;
+	var id = "msg-"+i;
+	var idname = name.replace(" ","-").toLowerCase();
+	inner.append('<div class="item" id="'+id+'">'
+		+'<img src="'+img+'" /><p class="message"><a href="#" class="name">'
+		+'<small class="text-muted pull-right"><i class="fa fa-clock-o"></i>'+hours+":"+minutes+'</small>'
+		+name+'</a>'+msg+'</p></div>');
+	$("#"+id).hide().fadeIn(800);
+	if(clear) {
+		$(".box-footer input").val('').focus();
+	}
+	$("#chat-box").animate({scrollTop:inner.height()},1000);
+}
+
+$(".box-footer button").click(function(){
+	var input = $(this).parent().siblings("input");
+	if(input.val() != '') {
+		add_msg("You","../images/avatar2.png",input.val(),true);
+	}
+});
+$(".box-footer input").keypress(function(e){
+	if(e.which == 13) {
+		if($(this).val() != '') {
+			add_msg("You","../images/avatar2.png",$(this).val(),true);
+		}
+	}
+});
+$("a.cls").click(function(){
+	cls();
+});
+function cls() {
+	$("#chat-box .item").remove();
+	$("#chat-box").append('<div class="item"><div class="tips">-------------------------已清除完毕-------------------------</div></div>');
+}
+
 });
